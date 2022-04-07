@@ -10,12 +10,10 @@ import com.example.carfaxassignment.R
 import com.example.carfaxassignment.databinding.FragmentVehicleDetailsBinding
 import com.example.carfaxassignment.model.Vehicle
 
-
 class VehicleDetailsFragment() : Fragment() {
 
     lateinit var binding: FragmentVehicleDetailsBinding
     private var vehicle: Vehicle? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

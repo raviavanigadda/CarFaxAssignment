@@ -1,6 +1,5 @@
 package com.example.carfaxassignment.repo
 
-
 import com.example.carfaxassignment.model.ApiResponse
 import com.example.carfaxassignment.model.Vehicle
 import com.example.carfaxassignment.network.CarFaxApiService
@@ -12,7 +11,6 @@ import javax.inject.Singleton
 class CarFaxRepository @Inject constructor(private val carFaxApiService: CarFaxApiService) {
     var response = ApiResponse()
     var cachedVehicels = emptyList<Vehicle>()
-
 
     fun getVehicles(): Observable<ApiResponse> {
         if (response.vehicles.isEmpty()) {
