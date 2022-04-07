@@ -1,6 +1,4 @@
-package com.android.carfax.model
-
-import com.google.gson.annotations.SerializedName
+package com.example.carfaxassignment.model
 
 data class Result(
     val response: ApiResponse,

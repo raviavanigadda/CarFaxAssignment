@@ -1,4 +1,4 @@
-package com.android.carfax.di
+package com.example.carfaxassignment.di
 
 open class SingletonHolder<T, A>(creator: (A) -> T) {
     private var creator: ((A) -> T)? = creator

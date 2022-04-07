@@ -1,4 +1,4 @@
-package com.android.carfax.model
+package com.example.carfaxassignment.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

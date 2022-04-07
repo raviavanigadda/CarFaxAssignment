@@ -1,7 +1,7 @@
-package com.android.carfax.di
+package com.example.carfaxassignment.di
 
 
-import com.android.carfax.network.CarFaxApiService
+import com.example.carfaxassignment.network.CarFaxApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,12 +1,12 @@
-package com.android.carfax.ui.home
+package com.example.carfaxassignment.ui.home
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android.carfax.model.ApiResponse
-import com.android.carfax.model.Result
-import com.android.carfax.repo.CarFaxRepository
+import com.example.carfaxassignment.model.ApiResponse
+import com.example.carfaxassignment.model.Result
+import com.example.carfaxassignment.repo.CarFaxRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.android.carfax.ui.details
+package com.example.carfaxassignment.ui.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.android.carfax.R
-import com.android.carfax.databinding.FragmentVehicleDetailsBinding
-import com.android.carfax.model.Vehicle
+import com.example.carfaxassignment.R
+import com.example.carfaxassignment.databinding.FragmentVehicleDetailsBinding
+import com.example.carfaxassignment.model.Vehicle
 
 
 class VehicleDetailsFragment() : Fragment() {

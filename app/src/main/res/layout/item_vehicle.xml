@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vehicle"
+            type="com.example.carfaxassignment.model.Vehicle" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:cardCornerRadius="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/vehicle_iv"
+                loadImageFromUrl="@{vehicle.images.firstPhoto.large}"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/car_place_holder" />
+
+            <TextView
+                android:id="@+id/vehicle_title_tv"
+                style="@style/TextViewTitle"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:text="@{vehicle.year + ` ` + vehicle.make+ ` ` + vehicle.model+` ` + vehicle.trim}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicle_iv"
+                tools:text="2011 BMW" />
+
+            <TextView
+                android:id="@+id/price_tv"
+                style="@style/TextViewSubTitle"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{`$ ` + vehicle.currentPrice }"
+                app:layout_constraintEnd_toEndOf="@id/vehicle_title_tv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/vehicle_title_tv"
+                app:layout_constraintTop_toBottomOf="@id/vehicle_title_tv"
+                tools:text="$ 17,234" />
+
+
+            <View
+                android:id="@+id/vertical_seperator"
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="@dimen/margin_large"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/price_tv"
+                app:layout_constraintStart_toEndOf="@+id/price_tv"
+                app:layout_constraintTop_toTopOf="@+id/price_tv" />
+
+            <TextView
+                android:id="@+id/mileage_tv"
+                style="@style/TextViewSubTitle"
+                android:layout_marginStart="@dimen/margin_large"
+                app:formatMileage="@{vehicle.milage}"
+                app:layout_constraintBottom_toBottomOf="@id/price_tv"
+                app:layout_constraintStart_toEndOf="@id/vertical_seperator"
+                app:layout_constraintTop_toTopOf="@id/price_tv"
+                tools:text="39.1k mi" />
+
+            <View
+                android:id="@+id/horizontal_line_seperator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/price_tv" />
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/call_tv"
+                style="@style/TextViewTitle"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:text="@string/call_dealer"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/horizontal_line_seperator"
+                app:layout_constraintStart_toStartOf="@id/horizontal_line_seperator"
+                app:layout_constraintTop_toBottomOf="@id/horizontal_line_seperator" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

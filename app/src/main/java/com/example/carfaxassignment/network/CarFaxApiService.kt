@@ -1,11 +1,8 @@
-package com.android.carfax.network
+package com.example.carfaxassignment.network
 
-import com.android.carfax.model.ApiResponse
-import com.android.carfax.model.Vehicle
+import com.example.carfaxassignment.model.ApiResponse
 import io.reactivex.rxjava3.core.Observable
-import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface CarFaxApiService {
 

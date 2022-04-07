@@ -1,9 +1,9 @@
-package com.android.carfax.repo
+package com.example.carfaxassignment.repo
 
 
-import com.android.carfax.model.ApiResponse
-import com.android.carfax.model.Vehicle
-import com.android.carfax.network.CarFaxApiService
+import com.example.carfaxassignment.model.ApiResponse
+import com.example.carfaxassignment.model.Vehicle
+import com.example.carfaxassignment.network.CarFaxApiService
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 import javax.inject.Singleton

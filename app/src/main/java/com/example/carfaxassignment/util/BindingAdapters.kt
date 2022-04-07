@@ -1,4 +1,4 @@
-package com.android.carfax.util
+package com.example.carfaxassignment.util
 
 import android.annotation.SuppressLint
 import android.widget.ImageView

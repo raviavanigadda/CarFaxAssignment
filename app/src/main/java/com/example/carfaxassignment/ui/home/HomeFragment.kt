@@ -1,4 +1,4 @@
-package com.android.carfax.ui.home
+package com.example.carfaxassignment.ui.home
 
 import android.os.Bundle
 import android.util.Log
@@ -12,9 +12,10 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.android.carfax.base.BaseFragment
-import com.android.carfax.model.Result
+import com.example.carfaxassignment.base.BaseFragment
+import com.example.carfaxassignment.model.Result
 import com.example.carfaxassignment.R
+import com.example.carfaxassignment.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.net.ConnectException
 import java.net.UnknownHostException

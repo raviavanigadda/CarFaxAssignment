@@ -1,13 +1,13 @@
-package com.android.carfax.ui.home
+package com.example.carfaxassignment.ui.home
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.android.carfax.R
-import com.android.carfax.databinding.ItemVehicleBinding
-import com.android.carfax.model.Vehicle
+import com.example.carfaxassignment.model.Vehicle
+import com.example.carfaxassignment.R
+import com.example.carfaxassignment.databinding.ItemVehicleBinding
 import javax.inject.Inject
 
 
