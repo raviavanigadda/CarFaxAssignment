@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vehicle"
+            type="com.android.carfax.model.Vehicle" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:elevation="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/vehicle_iv"
+                        loadImageFromUrl="@{vehicle.images.firstPhoto.large}"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/car_place_holder" />
+
+                    <TextView
+                        android:id="@+id/vehicle_title_tv"
+                        style="@style/TextViewTitle"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:text="@{vehicle.year + ` ` + vehicle.make+ ` ` + vehicle.model+` ` + vehicle.trim}"
+                        android:textColor="@color/grey_mild"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vehicle_iv"
+                        tools:text="2011 BMW" />
+
+                    <TextView
+                        android:id="@+id/price_tv"
+                        style="@style/TextViewTitle"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:text="@{`$` + vehicle.currentPrice}"
+                        android:textSize="24sp"
+                        app:layout_constraintEnd_toEndOf="@id/vehicle_title_tv"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@id/vehicle_title_tv"
+                        app:layout_constraintTop_toBottomOf="@id/vehicle_title_tv"
+                        tools:text="$ 17,234" />
+
+
+                    <View
+                        android:id="@+id/vertical_seperator"
+                        android:layout_width="3dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/price_tv"
+                        app:layout_constraintStart_toEndOf="@+id/price_tv"
+                        app:layout_constraintTop_toTopOf="@+id/price_tv" />
+
+                    <TextView
+                        android:id="@+id/mileage_tv"
+                        style="@style/TextViewTitle"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:textSize="24sp"
+                        app:formatMileage="@{vehicle.milage}"
+                        app:layout_constraintBottom_toBottomOf="@id/price_tv"
+                        app:layout_constraintStart_toEndOf="@id/vertical_seperator"
+                        app:layout_constraintTop_toTopOf="@id/price_tv"
+                        tools:text="39.1k mi" />
+
+                    <View
+                        android:id="@+id/horizontal_line_seperator"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:background="@color/grey_lightest"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/price_tv" />
+
+                    <TextView
+                        android:id="@+id/vehicle_info_tv"
+                        style="@style/TextViewTitle"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/vehicle_info"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/horizontal_line_seperator" />
+
+                    <LinearLayout
+                        android:id="@+id/vehicle_info_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:layout_marginBottom="@dimen/margin_large"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/vehicle_info_tv"
+                        app:layout_constraintStart_toStartOf="@id/vehicle_info_tv"
+                        app:layout_constraintTop_toBottomOf="@id/vehicle_info_tv">
+
+                        <include
+                            android:id="@+id/location_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.dealer.city}"
+                            app:passedLabel="@{@string/location}" />
+
+                        <include
+                            android:id="@+id/exterior_color_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.exteriorColor}"
+                            app:passedLabel="@{@string/exterior_color}" />
+
+                        <include
+                            android:id="@+id/interior_color_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.interiorColor}"
+                            app:passedLabel="@{@string/interior_color}" />
+
+                        <include
+                            android:id="@+id/drive_type_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.driveType}"
+                            app:passedLabel="@{@string/drive_type}" />
+
+                        <include
+                            android:id="@+id/transmission_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.transmission}"
+                            app:passedLabel="@{@string/transmission}" />
+
+                        <include
+                            android:id="@+id/body_style_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.bodyType}"
+                            app:passedLabel="@{@string/body_style}" />
+
+                        <include
+                            android:id="@+id/engine_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.engine}"
+                            app:passedLabel="@{@string/engine}" />
+
+                        <include
+                            android:id="@+id/fuel_ll"
+                            layout="@layout/item_vehicle_info"
+                            app:passedInfo="@{vehicle.fuel}"
+                            app:passedLabel="@{@string/fuel}" />
+
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/call_dealer_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:background="@color/colorPrimary"
+                android:text="@string/call_dealer" />
+        </LinearLayout>
+    </ScrollView>
+
+</layout>
