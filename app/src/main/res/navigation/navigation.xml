@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.carfaxassignment.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_vehicle_details">
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_vehicleDetailsFragment"
             app:destination="@id/vehicleDetailsFragment" />

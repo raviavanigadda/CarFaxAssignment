@@ -7,7 +7,7 @@
 
         <variable
             name="vehicle"
-            type="com.example.carfaxassignment.model.Vehicle" />
+            type="com.example.carfaxassignment.data.model.Vehicle" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -56,6 +56,17 @@
                 app:layout_constraintTop_toBottomOf="@id/vehicle_title_tv"
                 tools:text="$ 17,234" />
 
+            <TextView
+                android:id="@+id/city_tv"
+                style="@style/TextViewSubTitle"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{vehicle.dealer.city}"
+                app:layout_constraintEnd_toEndOf="@id/mileage_tv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/price_tv"
+                app:layout_constraintTop_toBottomOf="@id/price_tv"
+                tools:text="New York" />
+
 
             <View
                 android:id="@+id/vertical_seperator"
@@ -87,7 +98,7 @@
                 android:background="@android:color/darker_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/price_tv" />
+                app:layout_constraintTop_toBottomOf="@id/city_tv" />
 
             <TextView
                 android:clickable="true"

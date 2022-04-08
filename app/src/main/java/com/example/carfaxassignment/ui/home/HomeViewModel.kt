@@ -1,12 +1,9 @@
 package com.example.carfaxassignment.ui.home
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.carfaxassignment.model.ApiResponse
-import com.example.carfaxassignment.model.Result
-import com.example.carfaxassignment.repo.CarFaxRepository
+import com.example.carfaxassignment.data.model.Result
+import com.example.carfaxassignment.data.repo.CarFaxRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
@@ -16,15 +13,8 @@ class HomeViewModel @Inject constructor(
     private val carFaxRepository: CarFaxRepository
 ) : ViewModel() {
 
-    private var _isFavoriteDeck = MutableLiveData<Boolean>()
-    val isFavoriteDeck: LiveData<Boolean> = _isFavoriteDeck
 
     fun getVehicles(): Observable<Result> {
-        //Prepare the data for your UI, the vehicels list
-        //and maybe some additional data needed as well
-//        return carFaxRepository.getVehicles()
-//            .map { Result(it, "Vehicles loaded successfully!") }
-
         return  carFaxRepository.getVehicles()
             .map {
                 Log.d("ViewModel","Mapping vehicles to UIData...")
@@ -32,7 +22,7 @@ class HomeViewModel @Inject constructor(
             }
             .onErrorReturn {
                 Log.d("ViewModel","An error occurred $it")
-                Result(ApiResponse(), "An error occurred", it)
+                Result(listOf(), "An error occurred", it)
             }
     }
 

@@ -1,25 +1,27 @@
 package com.example.carfaxassignment.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.carfaxassignment.base.BaseFragment
-import com.example.carfaxassignment.model.Result
 import com.example.carfaxassignment.R
+import com.example.carfaxassignment.base.BaseFragment
 import com.example.carfaxassignment.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import java.net.ConnectException
 import java.net.UnknownHostException
 import javax.inject.Inject
+import com.example.carfaxassignment.data.model.Result
 
 @AndroidEntryPoint
 class HomeFragment() : BaseFragment() {
@@ -46,11 +48,18 @@ class HomeFragment() : BaseFragment() {
 
     private fun initViews() {
         binding.recyclerView.adapter = vehiclesAdapter
-        vehiclesAdapter.clickListener = {
+        vehiclesAdapter.itemClickListener = {
             findNavController().navigate(
                 R.id.action_homeFragment_to_vehicleDetailsFragment,
                 bundleOf("_arg_key_vehicle" to it)
             )
+        }
+
+        vehiclesAdapter.callButtonClickListener = {
+            val intent = Intent(Intent.ACTION_DIAL)
+
+            intent.data = Uri.parse("tel:${it}")
+            requireContext().startActivity(intent)
         }
     }
 
@@ -73,7 +82,7 @@ class HomeFragment() : BaseFragment() {
     fun showVehicles(data: Result) {
         if (data.error == null) {
             //adapter to be used
-            vehiclesAdapter.addItem(vehicles = data.response.vehicles)
+            vehiclesAdapter.addItem(vehicles = data.vehicles)
         } else if (data.error is ConnectException || data.error is UnknownHostException) {
             Log.d("HomeFragment", "No connection, maybe inform user that data loaded from DB.")
         } else {

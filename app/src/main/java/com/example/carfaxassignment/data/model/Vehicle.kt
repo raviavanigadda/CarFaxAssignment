@@ -1,11 +1,18 @@
-package com.example.carfaxassignment.model
+package com.example.carfaxassignment.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.carfaxassignment.util.TABLE_VEHICLES
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@Entity(tableName = TABLE_VEHICLES)
 data class Vehicle(
+    @SerializedName("id")
+    @PrimaryKey(autoGenerate = false)
+    val id: String,
     @SerializedName("model")
     val model: String,
     @SerializedName("make")

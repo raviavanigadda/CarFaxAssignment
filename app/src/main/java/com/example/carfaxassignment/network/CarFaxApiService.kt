@@ -1,6 +1,6 @@
 package com.example.carfaxassignment.network
 
-import com.example.carfaxassignment.model.ApiResponse
+import com.example.carfaxassignment.data.model.ApiResponse
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 

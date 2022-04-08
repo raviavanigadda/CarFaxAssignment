@@ -1,4 +1,4 @@
-package com.example.carfaxassignment.model
+package com.example.carfaxassignment.data.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.carfaxassignment.model.Vehicle
+import com.example.carfaxassignment.data.model.Vehicle
 import com.example.carfaxassignment.R
 import com.example.carfaxassignment.databinding.ItemVehicleBinding
 import javax.inject.Inject
@@ -22,7 +22,8 @@ class VehiclesAdapter @Inject constructor() :
         notifyDataSetChanged()
     }
 
-    internal var clickListener: (Vehicle) -> Unit = { _-> }
+    internal var itemClickListener: (Vehicle) -> Unit = { _-> }
+    internal var callButtonClickListener: (String) -> Unit = { _->}
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehiclesViewHolder =
@@ -40,7 +41,8 @@ class VehiclesAdapter @Inject constructor() :
             vehicle = vehicles[position]
             executePendingBindings()
 
-            cardView.setOnClickListener { clickListener(vehicles[position]) }
+            cardView.setOnClickListener { itemClickListener(vehicles[position]) }
+            callTv.setOnClickListener { callButtonClickListener(vehicles[position].dealer.phone)}
 
         }
     }
