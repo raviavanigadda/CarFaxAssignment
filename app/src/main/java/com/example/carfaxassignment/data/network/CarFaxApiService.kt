@@ -1,4 +1,4 @@
-package com.example.carfaxassignment.network
+package com.example.carfaxassignment.data.network
 
 import com.example.carfaxassignment.data.model.ApiResponse
 import io.reactivex.rxjava3.core.Observable

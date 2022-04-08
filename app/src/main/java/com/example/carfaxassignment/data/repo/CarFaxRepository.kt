@@ -3,7 +3,7 @@ package com.example.carfaxassignment.data.repo
 import android.util.Log
 import com.example.carfaxassignment.data.local.dao.VehicleDao
 import com.example.carfaxassignment.data.model.Vehicle
-import com.example.carfaxassignment.network.CarFaxApiService
+import com.example.carfaxassignment.data.network.CarFaxApiService
 import com.example.carfaxassignment.util.Utils
 import javax.inject.Inject
 import javax.inject.Singleton

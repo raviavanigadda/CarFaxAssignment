@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.carfaxassignment.data.local.CarFaxDatabase
 import com.example.carfaxassignment.data.local.dao.VehicleDao
-import com.example.carfaxassignment.network.CarFaxApiService
+import com.example.carfaxassignment.data.network.CarFaxApiService
 import com.example.carfaxassignment.util.CAR_FAX_DATABASE
 import com.example.carfaxassignment.util.Utils
 import dagger.Module
